@@ -399,8 +399,14 @@ function getElementByIndices(/* arr, indices */) {
  *  getFalsyValuesCount([ -1, 'false', null, 0 ]) => 2
  *  getFalsyValuesCount([ null, undefined, NaN, false, 0, '' ]) => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  const result = arr.reduce((count, element) => {
+    if (!element) {
+      return count + 1;
+    }
+    return count;
+  }, 0);
+  return result;
 }
 
 /**
@@ -456,8 +462,30 @@ function getIndicesOfOddNumbers(numbers) {
  *    getHexRGBValues([ 0, 255, 16777215]) => [ '#000000', '#0000FF', '#FFFFFF' ]
  *    getHexRGBValues([]) => []
  */
-function getHexRGBValues(/* arr */) {
-  throw new Error('Not implemented');
+function getHexRGBValues(arr) {
+  const toHex = (value) => {
+    const hex = value.toString(16).toUpperCase();
+    let result = '';
+    if (hex.length === 1) {
+      result = result.concat('0', hex);
+    } else {
+      result = hex;
+    }
+    return result;
+  };
+
+  const rgbToHex = (rgb) => {
+    const r = Math.floor(rgb / (256 * 256)) % 256;
+    const g = Math.floor(rgb / 256) % 256;
+    const b = rgb % 256;
+    const hexR = toHex(r);
+    const hexG = toHex(g);
+    const hexB = toHex(b);
+    return `#${hexR}${hexG}${hexB}`;
+  };
+
+  const newArr = arr.map((element) => rgbToHex(element));
+  return newArr;
 }
 
 /**
@@ -559,6 +587,41 @@ function shiftArray(/* arr, n */) {
  */
 function sortDigitNamesByNumericOrder(/* arr */) {
   throw new Error('Not implemented');
+  // let number = 0;
+  // switch (arr[i]) {
+  //   case 'zero':
+  //     number = 0;
+  //     break;
+  //   case 'one':
+  //     number = 0;
+  //     break;
+  //   case 'two':
+  //     number = 0;
+  //     break;
+  //   case 'three':
+  //     number = 0;
+  //     break;
+  //   case 'four':
+  //     number = 0;
+  //     break;
+  //   case 'five':
+  //     number = 0;
+  //     break;
+  //   case 'six':
+  //     number = 0;
+  //     break;
+  //   case 'seven':
+  //     number = 0;
+  //     break;
+  //   case 'eight':
+  //     number = 0;
+  //     break;
+  //   case 'nine':
+  //     number = 0;
+  //     break;
+  //   default:
+  //     break;
+  // }
 }
 
 /**
