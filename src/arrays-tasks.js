@@ -358,17 +358,9 @@ function createChunks(/* arr, chunkSize */) {
  *    generateOdds(2) => [ 1, 3 ]
  *    generateOdds(5) => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  throw new Error('Not implemented');
-  // let fullArr = [];
-  // fullArr = Array.from({ length: len + 1 }, (_, i) => i);
-
-  // const oddArr = fullArr.filter((num) => {
-  //   if (num % 2 !== 0) {
-  //   return num;
-  //   }
-  // });
-  // return oddArr;
+function generateOdds(len) {
+  const oddArr = Array.from({ length: len }, (_, index) => index * 2 + 1);
+  return oddArr;
 }
 
 /**
@@ -436,8 +428,14 @@ function getIdentityMatrix(/* n */) {
  *    getIndicesOfOddNumbers([2, 4, 6, 8, 10]) => []
  *    getIndicesOfOddNumbers([11, 22, 33, 44, 55]) => [0, 2, 4]
  */
-function getIndicesOfOddNumbers(/* numbers */) {
-  throw new Error('Not implemented');
+function getIndicesOfOddNumbers(numbers) {
+  const oddIndexArr = numbers.reduce((filteredArr, num, index) => {
+    if (num % 2 !== 0) {
+      filteredArr.push(index);
+    }
+    return filteredArr;
+  }, []);
+  return oddIndexArr;
 }
 
 /**
