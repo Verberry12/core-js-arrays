@@ -258,8 +258,10 @@ function toStringList(arr) {
  *   distinct([ 1, 1, 2, 2, 3, 3, 4, 4]) => [ 1, 2, 3, 4]
  *   distinct([]) => []
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  const uniqueValues = new Set(arr);
+  const newArr = Array.from(uniqueValues);
+  return newArr;
 }
 
 /**
@@ -290,8 +292,8 @@ function createNDimensionalArray(/* n, size */) {
  *    flattenArray(['a', ['b', ['c', 'd'], 'e'], 'f']) => ['a', 'b', 'c', 'd', 'e', 'f']
  *    flattenArray([1, 2, 3, 4]) => [1, 2, 3, 4]
  */
-function flattenArray(/* nestedArray */) {
-  throw new Error('Not implemented');
+function flattenArray(nestedArray) {
+  return nestedArray.flat(Infinity);
 }
 
 /**
@@ -358,6 +360,15 @@ function createChunks(/* arr, chunkSize */) {
  */
 function generateOdds(/* len */) {
   throw new Error('Not implemented');
+  // let fullArr = [];
+  // fullArr = Array.from({ length: len + 1 }, (_, i) => i);
+
+  // const oddArr = fullArr.filter((num) => {
+  //   if (num % 2 !== 0) {
+  //   return num;
+  //   }
+  // });
+  // return oddArr;
 }
 
 /**
